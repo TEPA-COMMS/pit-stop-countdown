@@ -1,0 +1,353 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#062e5f">
+  <meta name="description" content="Live countdown to the TEPA Central Region Members Meeting at 6:00 PM on 18 November 2026.">
+  <title>TEPA Central Region Members Meeting | 6:00 PM</title>
+  <style>
+    :root {
+      color-scheme: light;
+      font-family: Inter, "Segoe UI", Arial, sans-serif;
+      color: #102c53;
+      background: #edf5fc;
+      font-synthesis: none;
+      text-rendering: optimizeLegibility;
+      -webkit-font-smoothing: antialiased;
+      --navy: #062e5f;
+      --blue: #00a4e8;
+      --muted: #527092;
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      min-height: 100vh;
+      margin: 0;
+      padding: 32px 18px;
+      display: grid;
+      place-items: center;
+      background:
+        radial-gradient(ellipse at 10% 12%, #d7edfc 0, transparent 38%),
+        radial-gradient(ellipse at 90% 90%, #d4e6f5 0, transparent 35%),
+        #f4f8fc;
+    }
+
+    .card {
+      width: min(100%, 760px);
+      overflow: hidden;
+      border: 1px solid #d5e5f3;
+      border-radius: 28px;
+      background: #fff;
+      box-shadow: 0 24px 70px #123b641c;
+    }
+
+    .top {
+      position: relative;
+      padding: 34px clamp(24px, 7vw, 58px) 42px;
+      color: white;
+      background: linear-gradient(120deg, #062850, #06457f 70%, #0879b8);
+      isolation: isolate;
+    }
+
+    .top::after {
+      position: absolute;
+      z-index: -1;
+      right: -54px;
+      bottom: -132px;
+      width: 310px;
+      height: 310px;
+      border: 34px solid #ffffff0d;
+      border-radius: 50%;
+      content: "";
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 38px;
+      font-size: 15px;
+      font-weight: 800;
+      letter-spacing: .13em;
+    }
+
+    .brand-mark {
+      display: grid;
+      width: 38px;
+      height: 38px;
+      place-items: center;
+      border: 1px solid #ffffff70;
+      border-radius: 11px;
+      color: #fff;
+      font-size: 20px;
+    }
+
+    .eyebrow {
+      margin: 0 0 10px;
+      color: #76d6ff;
+      font-size: 12px;
+      font-weight: 800;
+      letter-spacing: .2em;
+      text-transform: uppercase;
+    }
+
+    h1 {
+      max-width: 560px;
+      margin: 0;
+      font-size: clamp(32px, 7vw, 56px);
+      line-height: .98;
+      letter-spacing: -.045em;
+      text-transform: uppercase;
+    }
+
+    h1 span {
+      display: block;
+      margin-top: 7px;
+      color: #42c8ff;
+    }
+
+    .tagline {
+      margin: 17px 0 0;
+      color: #d3e8f7;
+      font-size: 14px;
+      font-weight: 600;
+      letter-spacing: .16em;
+      text-transform: uppercase;
+    }
+
+    main { padding: 36px clamp(20px, 7vw, 58px) 28px; }
+
+    .intro {
+      margin: 0 0 25px;
+      color: var(--muted);
+      font-size: 16px;
+      line-height: 1.65;
+    }
+
+    .countdown {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 12px;
+      margin: 0 0 30px;
+    }
+
+    .unit {
+      padding: 20px 8px 17px;
+      border: 1px solid #d8e9f6;
+      border-radius: 16px;
+      background: linear-gradient(180deg, #f8fcff, #edf6fc);
+      text-align: center;
+    }
+
+    .value {
+      display: block;
+      color: var(--navy);
+      font-size: clamp(34px, 8vw, 54px);
+      font-variant-numeric: tabular-nums;
+      font-weight: 800;
+      line-height: 1;
+      letter-spacing: -.05em;
+    }
+
+    .label {
+      display: block;
+      margin-top: 10px;
+      color: #557493;
+      font-size: 10px;
+      font-weight: 800;
+      letter-spacing: .16em;
+      text-transform: uppercase;
+    }
+
+    .details {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 14px;
+      padding-top: 22px;
+      border-top: 1px solid #e3edf5;
+    }
+
+    .detail { display: flex; gap: 12px; align-items: flex-start; }
+
+    .detail-icon {
+      flex: 0 0 36px;
+      display: grid;
+      width: 36px;
+      height: 36px;
+      place-items: center;
+      border-radius: 50%;
+      color: white;
+      background: var(--navy);
+      font-size: 16px;
+    }
+
+    .detail-label {
+      margin: 1px 0 4px;
+      color: #009ddd;
+      font-size: 10px;
+      font-weight: 800;
+      letter-spacing: .14em;
+      text-transform: uppercase;
+    }
+
+    .detail-value {
+      margin: 0;
+      color: var(--navy);
+      font-size: 14px;
+      font-weight: 700;
+      line-height: 1.45;
+    }
+
+    .rsvp {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      margin-top: 27px;
+      padding: 18px 20px;
+      border-radius: 16px;
+      color: white;
+      background: linear-gradient(105deg, #047fbe, #062e5f);
+    }
+
+    .rsvp p { margin: 0; }
+    .rsvp-title { font-size: 15px; font-weight: 800; }
+    .rsvp-note { margin-top: 4px !important; color: #d8edfb; font-size: 12px; }
+
+    .share {
+      flex: 0 0 auto;
+      padding: 10px 15px;
+      border: 0;
+      border-radius: 999px;
+      color: var(--navy);
+      background: #fff;
+      font: inherit;
+      font-size: 12px;
+      font-weight: 800;
+      cursor: pointer;
+    }
+
+    .share:hover { background: #e7f6ff; }
+    .share:focus-visible { outline: 3px solid #78d7ff; outline-offset: 3px; }
+
+    footer {
+      padding: 0 20px 24px;
+      color: #8299ae;
+      font-size: 11px;
+      text-align: center;
+    }
+
+    @media (max-width: 520px) {
+      body { padding: 14px 10px; }
+      .card { border-radius: 22px; }
+      .top { padding-top: 26px; }
+      .brand { margin-bottom: 30px; }
+      .countdown { gap: 7px; }
+      .unit { padding: 16px 3px 14px; border-radius: 12px; }
+      .label { font-size: 9px; letter-spacing: .1em; }
+      .details { grid-template-columns: 1fr; }
+      .rsvp { align-items: flex-start; flex-direction: column; }
+    }
+
+    @media (prefers-reduced-motion: no-preference) {
+      .unit { animation: arrive .55s both; }
+      .unit:nth-child(2) { animation-delay: .06s; }
+      .unit:nth-child(3) { animation-delay: .12s; }
+      .unit:nth-child(4) { animation-delay: .18s; }
+      @keyframes arrive {
+        from { opacity: 0; transform: translateY(8px); }
+        to { opacity: 1; transform: translateY(0); }
+      }
+    }
+  </style>
+</head>
+<body>
+  <article class="card">
+    <header class="top">
+      <div class="brand"><span class="brand-mark" aria-hidden="true">T</span> TEPA <span aria-hidden="true">|</span> CENTRAL REGION</div>
+      <p class="eyebrow">You're invited</p>
+      <h1>TEPA Members <span>Meeting</span></h1>
+      <p class="tagline">18 November 2026 &nbsp;·&nbsp; 6:00 PM &nbsp;·&nbsp; The Pit Stop</p>
+    </header>
+
+    <main>
+      <p class="intro">The Pit Stop is your chance to get the latest updates, share insights and connect with like-minded industry professionals. See you there!</p>
+
+      <section class="countdown" aria-label="Countdown to the meeting">
+        <div class="unit"><span class="value" id="days">--</span><span class="label">Days</span></div>
+        <div class="unit"><span class="value" id="hours">--</span><span class="label">Hours</span></div>
+        <div class="unit"><span class="value" id="minutes">--</span><span class="label">Minutes</span></div>
+        <div class="unit"><span class="value" id="seconds">--</span><span class="label">Seconds</span></div>
+      </section>
+
+      <section class="details" aria-label="Meeting details">
+        <div class="detail">
+          <span class="detail-icon" aria-hidden="true">▦</span>
+          <div><p class="detail-label">TEPA meeting starts</p><p class="detail-value">18 November 2026<br>6:00 PM (18:00 SAST)</p></div>
+        </div>
+        <div class="detail">
+          <span class="detail-icon" aria-hidden="true">⌖</span>
+          <div><p class="detail-label">Venue</p><p class="detail-value">Gallagher Convention Centre<br>19 Richards Drive, Halfway House, Midrand</p></div>
+        </div>
+      </section>
+
+      <section class="rsvp">
+        <div><p class="rsvp-title">TEPA Members Meeting · 6:00 PM</p><p class="rsvp-note">And stand a chance to win a prize at The Pit Stop!</p></div>
+        <button class="share" id="share" type="button">Share invite</button>
+      </section>
+    </main>
+    <footer>Times shown in South Africa time (SAST, UTC+2)</footer>
+  </article>
+
+  <script>
+    (() => {
+      const eventTime = Date.UTC(2026, 10, 18, 16, 0, 0);
+      const fields = {
+        days: document.getElementById("days"),
+        hours: document.getElementById("hours"),
+        minutes: document.getElementById("minutes"),
+        seconds: document.getElementById("seconds")
+      };
+
+      function updateCountdown() {
+        const remaining = Math.max(0, eventTime - Date.now());
+        const totalSeconds = Math.floor(remaining / 1000);
+        fields.days.textContent = String(Math.floor(totalSeconds / 86400)).padStart(2, "0");
+        fields.hours.textContent = String(Math.floor((totalSeconds % 86400) / 3600)).padStart(2, "0");
+        fields.minutes.textContent = String(Math.floor((totalSeconds % 3600) / 60)).padStart(2, "0");
+        fields.seconds.textContent = String(totalSeconds % 60).padStart(2, "0");
+        if (remaining === 0) {
+          document.querySelector(".intro").textContent = "The Pit Stop is underway — welcome!";
+        }
+      }
+
+      updateCountdown();
+      window.setInterval(updateCountdown, 1000);
+
+      document.getElementById("share").addEventListener("click", async () => {
+        const shareData = {
+          title: "TEPA Central Region Members Meeting — 6:00 PM",
+          text: "Join us at 6:00 PM on 18 November 2026 at Gallagher Convention Centre.",
+          url: window.location.href
+        };
+        try {
+          if (navigator.share) {
+            await navigator.share(shareData);
+          } else if (navigator.clipboard && window.isSecureContext) {
+            await navigator.clipboard.writeText(shareData.url);
+            document.getElementById("share").textContent = "Link copied!";
+          } else {
+            window.prompt("Copy this invite link:", shareData.url);
+          }
+        } catch (error) {
+          if (error.name !== "AbortError") {
+            window.prompt("Copy this invite link:", shareData.url);
+          }
+        }
+      });
+    })();
+  </script>
+</body>
+</html>
